@@ -1,0 +1,6 @@
+# Educational Snort 2.x examples only. NOT production-ready.
+# Ensure SIDs do not collide with existing local rules.
+alert tcp any any -> any 80 (msg:"LAB: TCP traffic to port 80"; sid:1000001; rev:1;)
+alert tcp any any -> any any (msg:"LAB: TCP SYN packet"; flags:S; sid:1000002; rev:1;)
+alert tcp any any -> any any (msg:"LAB: TCP PSH ACK packet"; flags:PA; sid:1000003; rev:1;)
+alert udp any any -> any 53 (msg:"LAB: UDP traffic to port 53"; sid:1000004; rev:1;)
